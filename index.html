@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ouBank Terminal</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -20,56 +21,56 @@ body {
 }
 @keyframes gradientMove { 0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
 .animated-bg { background-size: 300% 300%; animation: gradientMove 12s ease infinite; }
-.screen { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; text-align: left; }
-.welcome-text { font-size: 22px; font-weight: bold; line-height: 1.3; text-shadow: 0 2px 10px rgba(0,0,0,0.6); animation: fadeInUp 1s ease; }
-@keyframes fadeInUp { from{transform:translateY(50px);opacity:0;}to{transform:translateY(0);opacity:1;} }
+.screen { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 4vw; text-align: left; }
+.welcome-text { font-size: 6vw; font-weight: bold; line-height: 1.3; text-shadow: 0 0.5vw 2vw rgba(0,0,0,0.6); animation: fadeInUp 1s ease; }
+@keyframes fadeInUp { from{transform:translateY(10vw);opacity:0;}to{transform:translateY(0);opacity:1;} }
 .overlay-bg { position:absolute; inset:0; background:rgba(0,0,0,0.85); opacity:0; animation: fadeInBg 0.8s forwards; z-index:5; }
 @keyframes fadeInBg { from{opacity:0;}to{opacity:1;} }
 .payment { display:flex; flex-direction:column; height:100%; animation: fadeInUp 0.8s ease; position:relative; z-index:10; pointer-events:auto; }
 .top-half, .bottom-half { flex:1; display:flex; justify-content:center; align-items:center; flex-direction:column; }
-.top-half .centered { margin-top: 40%; font-size: 18px; text-align: center; }
-.divider { display:flex; align-items:center; width:100%; color: rgba(255,255,255,0.8); }
-.divider-line { flex:1; height:1px; background: rgba(255,255,255,0.4); }
-.divider span { margin:0 10px; font-size:14px; }
-.qr-block { background: rgba(0,0,0,0.6); border-radius:16px; padding:12px; text-align:center; backdrop-filter:blur(6px); }
-.qr { width:160px; height:160px; margin:auto; display:flex; justify-content:center; align-items:center; border-radius:12px; overflow:hidden; background:white; }
-.qr img { width:150px; height:150px; }
-.qr-block .label { margin-top:8px; font-size:14px; }
-.qr-block .id { font-size:12px; color:gray; }
-.row { position:absolute; top:50px; left:10px; right:10px; display:flex; justify-content:space-between; }
+.top-half .centered { margin-top: 40%; font-size:5vw; text-align: center; }
+.divider { display:flex; align-items:center; width:100%; color: rgba(255,255,255,0.8); margin-top:2vh; margin-bottom:2vh; }
+.divider-line { flex:1; height:0.2vw; background: rgba(255,255,255,0.4); }
+.divider span { margin:0 2vw; font-size:4vw; }
+.qr-block { background: rgba(0,0,0,0.6); border-radius:4vw; padding:4vw; text-align:center; backdrop-filter:blur(6px); width:80vw; max-width:400px; }
+.qr { width:60vw; height:60vw; margin:auto; display:flex; justify-content:center; align-items:center; border-radius:3vw; overflow:hidden; background:white; }
+.qr img { width:90%; height:90%; }
+.qr-block .label { margin-top:2vw; font-size:4vw; }
+.qr-block .id { font-size:3vw; color:gray; margin-top:1vw; }
+.row { position:absolute; top:6vw; left:4vw; right:4vw; display:flex; justify-content:space-between; }
 .amount, .product { cursor:pointer; pointer-events:auto; -webkit-tap-highlight-color:transparent; }
-.overlay { position:absolute; inset:0; background:black; display:flex; justify-content:center; align-items:center; flex-direction:column; color:white; z-index:200; }
-svg { width:140px; height:140px; }
-.circle { fill:none; stroke-width:10; stroke-linecap:round; stroke-dasharray:280; stroke-dashoffset:70; transform-origin:50% 50%; }
+.amount div:first-child, .product div:first-child { font-size:3vw; opacity:0.7; }
+.amount div:last-child { font-size:5vw; font-weight:bold; }
+.product div:last-child { font-size:4vw; font-weight:bold; }
+.overlay { position:absolute; inset:0; background:black; display:flex; justify-content:center; align-items:center; flex-direction:column; color:white; z-index:200; padding:5vw; }
+svg { width:40vw; height:40vw; }
+.circle { fill:none; stroke-width:4vw; stroke-linecap:round; stroke-dasharray:280; stroke-dashoffset:70; transform-origin:50% 50%; }
 .spin { animation: spin 1s linear 3; }
 @keyframes spin { 0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
-.check, .cross { stroke-width:10; stroke-linecap:round; fill:none; stroke-dasharray:100; stroke-dashoffset:100; opacity:0; }
+.check, .cross { stroke-width:4vw; stroke-linecap:round; fill:none; stroke-dasharray:100; stroke-dashoffset:100; opacity:0; }
 .draw { animation: draw 0.8s forwards; }
 @keyframes draw { to{stroke-dashoffset:0;opacity:1;} }
-.modal { position:absolute; inset:0; background:rgba(0,0,0,0.7); display:flex; justify-content:center; align-items:center; z-index:300; }
-.modal-content { background:#1f1f1f; padding:20px; border-radius:12px; width:300px; max-height:80vh; overflow-y:auto; text-align:center; }
-.modal-content h3 { margin-bottom:10px; }
-.modal-content div { margin-bottom:6px; font-size:13px; }
-button { margin-top:10px; padding:6px 12px; border:none; border-radius:6px; background:#4c1d95; color:white; cursor:pointer; }
-.logo-container { position:absolute; top:10px; left:10px; display:flex; gap:6px; align-items:center; }
-.logo-circle { width:22px; height:22px; border-radius:50%; background: linear-gradient(135deg,#c084fc,#06b6d4); display:flex; justify-content:center; align-items:center; font-size:12px; font-weight:bold; color:#000; cursor:pointer; }
-.info-btn { width:26px; height:26px; border-radius:50%; background: rgba(255,255,255,0.15); display:flex; justify-content:center; align-items:center; cursor:pointer; font-weight:bold; backdrop-filter: blur(6px); }
-.check-twitter { width:18px; height:18px; cursor:pointer; }
-#paid-amount { font-size:36px; margin-top:20px; color:#8b5cf6; font-weight:bold; opacity:0; text-align:center; }
+.modal { position:absolute; inset:0; background:rgba(0,0,0,0.7); display:flex; justify-content:center; align-items:center; flex-direction:column; z-index:300; padding:5vw; }
+.modal-content { background:#1f1f1f; padding:4vw; border-radius:4vw; width:90vw; max-width:400px; overflow-y:auto; text-align:center; }
+.modal-content h3 { margin-bottom:3vw; font-size:5vw; }
+.modal-content div { margin-bottom:2vw; font-size:4vw; }
+button { margin-top:3vw; padding:3vw 5vw; border:none; border-radius:2vw; background:#4c1d95; color:white; font-size:4vw; cursor:pointer; }
+.logo-container { position:absolute; top:4vw; left:4vw; display:flex; gap:2vw; align-items:center; }
+.logo-circle { width:12vw; height:12vw; border-radius:50%; background: linear-gradient(135deg,#c084fc,#06b6d4); display:flex; justify-content:center; align-items:center; font-size:5vw; font-weight:bold; color:#000; cursor:pointer; }
+.info-btn { width:8vw; height:8vw; border-radius:50%; background: rgba(255,255,255,0.15); display:flex; justify-content:center; align-items:center; cursor:pointer; font-weight:bold; backdrop-filter: blur(6px); font-size:4vw; }
+.check-twitter { width:6vw; height:6vw; cursor:pointer; }
+#paid-amount { font-size:10vw; margin-top:4vw; color:#8b5cf6; font-weight:bold; opacity:0; text-align:center; }
 </style>
 </head>
 <body>
 <div id="screen" class="screen"></div>
-
 <script>
 const SHOW_CHECK = 1;
-
 const PRODUCTS = [
   { id:"1001", title:"Кофе латте", price:149, qr:"https://placekitten.com/200/200" },
   { id:"1002", title:"Бутерброд", price:199, qr:"https://placekitten.com/210/210" },
   { id:"1003", title:"Чипсы", price:79, qr:"https://placekitten.com/220/220" }
 ];
-
 let currentProduct=null, amountClicks=0, titleClicks=0;
 
 function showHome(){
@@ -97,12 +98,12 @@ function showPayment(){
     <div class="payment animated-bg">
       <div class="row">
         <div class="amount" onclick="amountClick()">
-          <div style="font-size:12px;opacity:0.7;">Сумма</div>
-          <div style="font-size:18px;font-weight:bold;">${currentProduct.price} ₽</div>
+          <div>Сумма</div>
+          <div>${currentProduct.price} ₽</div>
         </div>
         <div class="product" onclick="titleClick()">
-          <div style="font-size:12px;opacity:0.7;">Товар</div>
-          <div style="font-size:16px;font-weight:bold;">${currentProduct.title}</div>
+          <div>Товар</div>
+          <div>${currentProduct.title}</div>
         </div>
       </div>
       <div class="top-half"><div class="centered">Поднесите телефон для оплаты</div></div>
@@ -154,8 +155,8 @@ function showAnimation(type){
       <path class="check" stroke="#8b5cf6" d="M30 52 L45 70 L70 35"/>
       <path class="cross" stroke="#ef4444" d="M30 30 L70 70 M70 30 L30 70"/>
     </svg>
-    <div id="msg" style="text-align:center; margin-top:20px; font-size:28px;"> </div>
-    <div id="paid-amount"> </div>
+    <div id="msg" style="text-align:center; margin-top:2vw; font-size:6vw;"></div>
+    <div id="paid-amount"></div>
   `;
   document.body.appendChild(overlay);
   setTimeout(async ()=>{
@@ -196,7 +197,6 @@ async function openInfo(){
     info["Батарея"]=Math.round(b.level*100)+"%"; 
   }
 
-  // Проверяем доступность микрофона
   let micStatus = "Голосовой ввод работает";
   let showMicButton = false;
   try {
@@ -215,7 +215,7 @@ async function openInfo(){
     <h3>Данные терминала ${checkHTML}</h3>
     ${Object.entries(info).map(([k,v])=>`<div><b>${k}:</b> ${v}</div>`).join("")}
     <div><b>Голосовой ввод:</b> ${micStatus} 
-      ${showMicButton ? '<button id="retry-mic" style="margin-left:6px; cursor:pointer;">🎤</button>' : ''}
+      ${showMicButton ? '<button id="retry-mic" style="margin-left:2vw; cursor:pointer;">🎤</button>' : ''}
     </div>
     <button onclick="this.closest('.modal').remove()">Закрыть</button>
   </div>`;
