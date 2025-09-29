@@ -20,262 +20,271 @@ body {
 }
 @keyframes gradientMove { 0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
 .animated-bg { background-size: 300% 300%; animation: gradientMove 12s ease infinite; }
-.screen { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 5vw; text-align: left; }
-.welcome-text { font-size: 6vw; font-weight: bold; line-height: 1.3; text-shadow: 0 2px 10px rgba(0,0,0,0.6); animation: fadeInUp 1s ease; }
+.screen { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 20px; text-align: left; }
+.welcome-text { font-size: 22px; font-weight: bold; line-height: 1.3; text-shadow: 0 2px 10px rgba(0,0,0,0.6); animation: fadeInUp 1s ease; }
 @keyframes fadeInUp { from{transform:translateY(50px);opacity:0;}to{transform:translateY(0);opacity:1;} }
 .overlay-bg { position:absolute; inset:0; background:rgba(0,0,0,0.85); opacity:0; animation: fadeInBg 0.8s forwards; z-index:5; }
 @keyframes fadeInBg { from{opacity:0;}to{opacity:1;} }
 .payment { display:flex; flex-direction:column; height:100%; animation: fadeInUp 0.8s ease; position:relative; z-index:10; pointer-events:auto; }
 .top-half, .bottom-half { flex:1; display:flex; justify-content:center; align-items:center; flex-direction:column; }
-.top-half .centered { margin-top: 20%; font-size:5vw; text-align: center; }
-.divider { display:flex; align-items:center; width:100%; color: rgba(255,255,255,0.8); margin:3vw 0; }
-.divider-line { flex:1; height:2px; background: rgba(255,255,255,0.4); }
-.divider span { margin:0 2vw; font-size:4vw; }
-.qr-block { background: rgba(0,0,0,0.6); border-radius:16px; padding:4vw; text-align:center; backdrop-filter:blur(6px); width:70vw; max-width:300px; }
-.qr { width:60vw; height:60vw; max-width:200px; max-height:200px; margin:auto; display:flex; justify-content:center; align-items:center; border-radius:12px; overflow:hidden; background:white; }
-.qr img { width:100%; height:100%; object-fit:cover; }
-.qr-block .label { margin-top:2vw; font-size:4vw; }
-.qr-block .id { font-size:3vw; color:gray; }
-.row { position:absolute; top:5vw; left:5vw; right:5vw; display:flex; justify-content:space-between; }
-.amount, .product { cursor:pointer; pointer-events:auto; -webkit-tap-highlight-color:transparent; padding:2vw; border-radius:8px; background: rgba(255,255,255,0.05); }
-.amount div, .product div { font-size:4vw; }
-.overlay { position:absolute; inset:0; background:black; display:flex; justify-content:center; align-items:center; flex-direction:column; color:white; z-index:200; padding:5vw; }
-svg { width:40vw; height:40vw; max-width:140px; max-height:140px; }
+.top-half .centered { margin-top: 40%; font-size: 18px; text-align: center; }
+.divider { display:flex; align-items:center; width:100%; color: rgba(255,255,255,0.8); }
+.divider-line { flex:1; height:1px; background: rgba(255,255,255,0.4); }
+.divider span { margin:0 10px; font-size:14px; }
+.qr-block { background: rgba(0,0,0,0.6); border-radius:16px; padding:12px; text-align:center; backdrop-filter:blur(6px); }
+.qr { width:160px; height:160px; margin:auto; display:flex; justify-content:center; align-items:center; border-radius:12px; overflow:hidden; background:white; }
+.qr img { width:150px; height:150px; }
+.qr-block .label { margin-top:8px; font-size:14px; }
+.qr-block .id { font-size:12px; color:gray; }
+.row { position:absolute; top:50px; left:10px; right:10px; display:flex; justify-content:space-between; }
+.amount, .product { cursor:pointer; pointer-events:auto; -webkit-tap-highlight-color:transparent; }
+.overlay { position:absolute; inset:0; background:black; display:flex; justify-content:center; align-items:center; flex-direction:column; color:white; z-index:200; }
+svg { width:140px; height:140px; }
 .circle { fill:none; stroke-width:10; stroke-linecap:round; stroke-dasharray:280; stroke-dashoffset:70; transform-origin:50% 50%; }
 .spin { animation: spin 1s linear 3; }
 @keyframes spin { 0%{transform:rotate(0deg);}100%{transform:rotate(360deg);} }
 .check, .cross { stroke-width:10; stroke-linecap:round; fill:none; stroke-dasharray:100; stroke-dashoffset:100; opacity:0; }
 .draw { animation: draw 0.8s forwards; }
 @keyframes draw { to{stroke-dashoffset:0;opacity:1;} }
-.modal { position:absolute; inset:0; background:rgba(0,0,0,0.7); display:flex; justify-content:center; align-items:center; z-index:300; padding:5vw; }
-.modal-content { background:#1f1f1f; padding:5vw; border-radius:12px; width:90vw; max-width:400px; max-height:80vh; overflow-y:auto; text-align:center; }
-.modal-content h3 { margin-bottom:2vw; font-size:5vw; }
-.modal-content div { margin-bottom:1.5vw; font-size:4vw; }
-button { margin-top:2vw; padding:2vw 4vw; border:none; border-radius:6px; background:#4c1d95; color:white; cursor:pointer; font-size:4vw; }
-.logo-container { position:absolute; top:3vw; left:3vw; display:flex; gap:2vw; align-items:center; }
-.logo-circle { width:12vw; height:12vw; border-radius:50%; background: linear-gradient(135deg,#c084fc,#06b6d4); display:flex; justify-content:center; align-items:center; font-size:5vw; font-weight:bold; color:#000; cursor:pointer; }
-.info-btn { width:12vw; height:12vw; border-radius:50%; background: rgba(255,255,255,0.15); display:flex; justify-content:center; align-items:center; cursor:pointer; font-weight:bold; backdrop-filter: blur(6px); font-size:5vw; }
-.check-twitter { width:5vw; height:5vw; cursor:pointer; }
-#paid-amount { font-size:10vw; margin-top:5vw; color:#8b5cf6; font-weight:bold; opacity:0; text-align:center; }
+.modal { position:absolute; inset:0; background:rgba(0,0,0,0.7); display:flex; justify-content:center; align-items:center; z-index:300; }
+.modal-content { background:#1f1f1f; padding:20px; border-radius:12px; width:300px; max-height:80vh; overflow-y:auto; text-align:center; }
+.modal-content h3 { margin-bottom:10px; }
+.modal-content div { margin-bottom:6px; font-size:13px; }
+button { margin-top:10px; padding:10px 14px; border:none; border-radius:8px; background:#4c1d95; color:white; cursor:pointer; font-size:16px; }
+.logo-container { position:absolute; top:10px; left:10px; display:flex; gap:6px; align-items:center; }
+.logo-circle { width:26px; height:26px; border-radius:50%; background: linear-gradient(135deg,#c084fc,#06b6d4); display:flex; justify-content:center; align-items:center; font-size:14px; font-weight:bold; color:#000; cursor:pointer; }
+.info-btn { width:30px; height:30px; border-radius:50%; background: rgba(255,255,255,0.15); display:flex; justify-content:center; align-items:center; cursor:pointer; font-weight:bold; backdrop-filter: blur(6px); font-size:14px; }
+.check-twitter { width:20px; height:20px; cursor:pointer; }
+#paid-amount { font-size:40px; margin-top:20px; color:#8b5cf6; font-weight:bold; opacity:0; text-align:center; }
+
+/* 📱 Мобильная адаптация */
+@media (max-width: 600px) {
+  .welcome-text { font-size: 26px; line-height: 1.4; }
+  .top-half .centered { font-size: 20px; margin-top: 20%; }
+  .row { flex-direction: column; align-items: flex-start; gap: 10px; top: 20px; }
+  .amount div:first-child, .product div:first-child { font-size: 14px; }
+  .amount div:last-child, .product div:last-child { font-size: 20px; }
+  .qr { width: 220px; height: 220px; }
+  .qr img { width: 200px; height: 200px; }
+  .qr-block .label { font-size: 16px; }
+  .qr-block .id { font-size: 14px; }
+  svg { width: 180px; height: 180px; }
+  #msg { font-size: 24px !important; }
+  #paid-amount { font-size: 44px; }
+  button { font-size: 18px; padding: 12px 16px; }
+}
 </style>
 </head>
 <body>
 <div id="screen" class="screen"></div>
+
 <script>
-// ======= JS из твоего кода =======
-const SHOW_CHECK = 1;
-
-const PRODUCTS = [
-  { id:"1001", title:"Кофе латте", price:149, qr:"https://placekitten.com/200/200" },
-  { id:"1002", title:"Бутерброд", price:199, qr:"https://placekitten.com/210/210" },
-  { id:"1003", title:"Чипсы", price:79, qr:"https://placekitten.com/220/220" }
-];
-
-let currentProduct=null, amountClicks=0, titleClicks=0;
+const SHOW_CHECK = 1;    
+const PRODUCTS = [      
+{ id:"1001", title:"Кофе латте", price:149, qr:"https://placekitten.com/200/200" },      
+{ id:"1002", title:"Бутерброд", price:199, qr:"https://placekitten.com/210/210" },      
+{ id:"1003", title:"Чипсы", price:79, qr:"https://placekitten.com/220/220" }      
+];    
+let currentProduct=null, amountClicks=0, titleClicks=0;  
 
 function showHome(){
-  const screen=document.getElementById("screen");
-  screen.innerHTML=`
-    <div id="welcome" class="welcome-text">Добро пожаловать<br>в терминалы от банка<br>ouBank!</div>
-    <div class="logo-container">
-      <div class="logo-circle" onclick="openProductInput()">ou</div>
-      <div onclick="openProductInput()" style="cursor:pointer;">ouPay</div>
-      <div class="info-btn" onclick="openInfo()">i</div>
-    </div>`;
+const screen=document.getElementById("screen");
+screen.innerHTML=`
+<div id="welcome" class="welcome-text">Добро пожаловать<br>в терминалы от банка<br>ouBank!</div>
+<div class="logo-container">
+  <div class="logo-circle" onclick="openProductInput()">ou</div>
+  <div onclick="openProductInput()" style="cursor:pointer;">ouPay</div>
+  <div class="info-btn" onclick="openInfo()">i</div>
+</div>`;
 }
 
 function openProductInput(){
-  const id=prompt("Введите номер товара:");
-  const p=PRODUCTS.find(x=>x.id===id);
-  if(!p){ alert("Товар не найден"); return; }
-  currentProduct=p;
-  showPayment();
+const id=prompt("Введите номер товара:");
+const p=PRODUCTS.find(x=>x.id===id);
+if(!p){ alert("Товар не найден"); return; }
+currentProduct=p;
+showPayment();
 }
 
 function showPayment(){
-  document.getElementById("screen").innerHTML=`
-    <div class="overlay-bg animated-bg"></div>
-    <div class="payment animated-bg">
-      <div class="row">
-        <div class="amount" onclick="amountClick()">
-          <div style="font-size:12px;opacity:0.7;">Сумма</div>
-          <div style="font-size:18px;font-weight:bold;">${currentProduct.price} ₽</div>
-        </div>
-        <div class="product" onclick="titleClick()">
-          <div style="font-size:12px;opacity:0.7;">Товар</div>
-          <div style="font-size:16px;font-weight:bold;">${currentProduct.title}</div>
-        </div>
-      </div>
-      <div class="top-half"><div class="centered">Поднесите телефон для оплаты</div></div>
-      <div class="divider"><div class="divider-line"></div><span>или</span><div class="divider-line"></div></div>
-      <div class="bottom-half">
-        <div class="qr-block">
-          <div class="qr"><img src="${currentProduct.qr}"></div>
-          <div class="label">Оплатите QR</div>
-          <div class="id">#${currentProduct.id}</div>
-        </div>
-      </div>
-    </div>`;
+document.getElementById("screen").innerHTML=`
+<div class="overlay-bg animated-bg"></div>
+<div class="payment animated-bg">
+  <div class="row">
+    <div class="amount" onclick="amountClick()">
+      <div style="font-size:12px;opacity:0.7;">Сумма</div>
+      <div style="font-size:18px;font-weight:bold;">${currentProduct.price} ₽</div>
+    </div>
+    <div class="product" onclick="titleClick()">
+      <div style="font-size:12px;opacity:0.7;">Товар</div>
+      <div style="font-size:16px;font-weight:bold;">${currentProduct.title}</div>
+    </div>
+  </div>
+  <div class="top-half"><div class="centered">Поднесите телефон для оплаты</div></div>
+  <div class="divider"><div class="divider-line"></div><span>или</span><div class="divider-line"></div></div>
+  <div class="bottom-half">
+    <div class="qr-block">
+      <div class="qr"><img src="${currentProduct.qr}"></div>
+      <div class="label">Оплатите QR</div>
+      <div class="id">#${currentProduct.id}</div>
+    </div>
+  </div>
+</div>`;
 }
 
 function amountClick(){ amountClicks++; setTimeout(()=>amountClicks=0,1500); if(amountClicks>=3){ amountClicks=0; showAnimation("success"); } }
 function titleClick(){ titleClicks++; setTimeout(()=>titleClicks=0,1500); if(titleClicks>=3){ titleClicks=0; showAnimation("fail"); } }
 
 async function playBeep(type){
-  const ctx=new (window.AudioContext||window.webkitAudioContext)();
-  await ctx.resume();
-  const osc=ctx.createOscillator();
-  const gain=ctx.createGain();
-  osc.connect(gain); gain.connect(ctx.destination);
-  if(type==="success"){ osc.frequency.value=880; gain.gain.setValueAtTime(0.2, ctx.currentTime); }
-  else { osc.frequency.value=200; gain.gain.setValueAtTime(1.5, ctx.currentTime); }
-  osc.start();
-  osc.stop(ctx.currentTime+0.3);
+const ctx=new (window.AudioContext||window.webkitAudioContext)();
+await ctx.resume();
+const osc=ctx.createOscillator();
+const gain=ctx.createGain();
+osc.connect(gain); gain.connect(ctx.destination);
+if(type==="success"){ osc.frequency.value=880; gain.gain.setValueAtTime(0.2, ctx.currentTime); }
+else { osc.frequency.value=200; gain.gain.setValueAtTime(1.5, ctx.currentTime); }
+osc.start();
+osc.stop(ctx.currentTime+0.3);
 }
 
 function animateNumber(el, value){
-  let start = 0;
-  const duration = 1000;
-  const startTime = performance.now();
-  function step(time){
-    const progress = Math.min((time - startTime) / duration, 1);
-    const current = Math.floor(progress * value);
-    el.textContent = `-${current}₽`;
-    if(progress < 1) requestAnimationFrame(step);
-  }
-  requestAnimationFrame(step);
+let start = 0;
+const duration = 1000;
+const startTime = performance.now();
+function step(time){
+const progress = Math.min((time - startTime) / duration, 1);
+const current = Math.floor(progress * value);
+el.textContent = `-${current}₽`;
+if(progress < 1) requestAnimationFrame(step);
+}
+requestAnimationFrame(step);
 }
 
 function showAnimation(type){
-  const overlay=document.createElement("div");
-  overlay.className="overlay";
-  overlay.innerHTML = `
-    <svg viewBox="0 0 100 100">
-      <circle class="circle spin" cx="50" cy="50" r="45" stroke="${type==='success' ? '#8b5cf6' : '#ef4444'}" />
-      <path class="check" stroke="#8b5cf6" d="M30 52 L45 70 L70 35"/>
-      <path class="cross" stroke="#ef4444" d="M30 30 L70 70 M70 30 L30 70"/>
-    </svg>
-    <div id="msg" style="text-align:center; margin-top:5vw; font-size:6vw;"> </div>
-    <div id="paid-amount"> </div>
-  `;
-  document.body.appendChild(overlay);
-  setTimeout(async ()=>{
-    const circle=overlay.querySelector(".circle");
-    circle.classList.remove("spin");
-    circle.style.opacity="0.2";
+const overlay=document.createElement("div");
+overlay.className="overlay";
+overlay.innerHTML =`
+<svg viewBox="0 0 100 100">
+  <circle class="circle spin" cx="50" cy="50" r="45" stroke="${type==='success' ? '#8b5cf6' : '#ef4444'}" />
+  <path class="check" stroke="#8b5cf6" d="M30 52 L45 70 L70 35"/>
+  <path class="cross" stroke="#ef4444" d="M30 30 L70 70 M70 30 L30 70"/>
+</svg>
+<div id="msg" style="text-align:center; margin-top:20px; font-size:28px;"></div>
+<div id="paid-amount"></div>`;
+document.body.appendChild(overlay);
+setTimeout(async ()=>{
+const circle=overlay.querySelector(".circle");
+circle.classList.remove("spin");
+circle.style.opacity="0.2";
 
-    const msgDiv = document.getElementById("msg");
-    const amountDiv = document.getElementById("paid-amount");
+const msgDiv = document.getElementById("msg");
+const amountDiv = document.getElementById("paid-amount");
 
-    if(type==="success"){
-      overlay.querySelector(".check").classList.add("draw");
-      msgDiv.textContent = "Оплата прошла успешно!";
-      await playBeep("success");
-      amountDiv.style.opacity = 1;
-      animateNumber(amountDiv, currentProduct.price);
-    } else {
-      overlay.querySelector(".cross").classList.add("draw");
-      msgDiv.textContent="Недостаточно средств!";
-      await playBeep("fail");
-    }
+if(type==="success"){
+overlay.querySelector(".check").classList.add("draw");
+msgDiv.textContent = "Оплата прошла успешно!";
+await playBeep("success");
+amountDiv.style.opacity = 1;
+animateNumber(amountDiv, currentProduct.price);
+} else {
+overlay.querySelector(".cross").classList.add("draw");
+msgDiv.textContent="Недостаточно средств!";
+await playBeep("fail");
+}
 
-    setTimeout(()=>{ overlay.remove(); showHome(); },5000);
-  },3000);
+setTimeout(()=>{ overlay.remove(); showHome(); },5000);
+
+},3000);
 }
 
 async function openInfo(){
-  const info={
-    "UserAgent": navigator.userAgent,
-    "Платформа": navigator.platform,
-    "Язык": navigator.language,
-    "Экран": screen.width+"x"+screen.height,
-    "Онлайн": navigator.onLine
-  };
+const info={
+"UserAgent": navigator.userAgent,
+"Платформа": navigator.platform,
+"Язык": navigator.language,
+"Экран": screen.width+"x"+screen.height,
+"Онлайн": navigator.onLine
+};
 
-  if(navigator.getBattery){
-    const b=await navigator.getBattery();
-    info["Батарея"]=Math.round(b.level*100)+"%";
-  }
+if(navigator.getBattery){
+const b=await navigator.getBattery();
+info["Батарея"]=Math.round(b.level*100)+"%";
+}
 
-  let micStatus = "Голосовой ввод работает";
-  let showMicButton = false;
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-    stream.getTracks().forEach(track => track.stop());
-  } catch(e){
-    micStatus = "Голосовой ввод не работает";
-    showMicButton = true;
-  }
+let micStatus = "Голосовой ввод работает";
+let showMicButton = false;
+try {
+const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+stream.getTracks().forEach(track => track.stop());
+} catch(e){
+micStatus = "Голосовой ввод не работает";
+showMicButton = true;
+}
 
-  const modal=document.createElement("div");
-  modal.className="modal";
-  const checkHTML = SHOW_CHECK ? `<svg class="check-twitter" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#8b5cf6"/><path d="M7 13l3 3 7-7" stroke="#fff" stroke-width="2" fill="none"/></svg>` : '';
+const modal=document.createElement("div");
+modal.className="modal";
+const checkHTML = SHOW_CHECK ? `<svg class="check-twitter" viewBox="0 0 24 24"><circle cx="12" cy="12" r="12" fill="#8b5cf6"/><path d="M7 13l3 3 7-7" stroke="#fff" stroke-width="2" fill="none"/></svg>` : '';
 
-  modal.innerHTML=`<div class="modal-content">
-    <h3>Данные терминала ${checkHTML}</h3>
-    ${Object.entries(info).map(([k,v])=>`<div><b>${k}:</b> ${v}</div>`).join("")}
-    <div><b>Голосовой ввод:</b> ${micStatus}
-      ${showMicButton ? '<button id="retry-mic" style="margin-left:6px; cursor:pointer;">🎤</button>' : ''}
-    </div>
-    <button onclick="this.closest('.modal').remove()">Закрыть</button>
-  </div>`;
+modal.innerHTML=`<div class="modal-content">
+<h3>Данные терминала ${checkHTML}</h3>
+${Object.entries(info).map(([k,v])=>`<div><b>${k}:</b> ${v}</div>`).join("")}
+<div><b>Голосовой ввод:</b> ${micStatus} ${showMicButton ? '<button id="retry-mic" style="margin-left:6px; cursor:pointer;">🎤</button>' : ''}</div>
+<button onclick="this.closest('.modal').remove()">Закрыть</button>
+</div>`;
+document.body.appendChild(modal);
 
-  document.body.appendChild(modal);
-
-  if(showMicButton){
-    const btn = document.getElementById("retry-mic");
-    btn.addEventListener("click", async ()=>{
-      try{
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        stream.getTracks().forEach(track => track.stop());
-        alert("Голосовой ввод теперь доступен!");
-        modal.remove();
-        openInfo();
-      }catch(e){
-        alert("Разрешение не предоставлено. Голосовой ввод недоступен.");
-      }
-    });
-  }
-
-  if(SHOW_CHECK){
-    const svgEl = modal.querySelector(".check-twitter");
-    svgEl.addEventListener("click",()=>{
-      const infoModal=document.createElement("div");
-      infoModal.className="modal";
-      infoModal.innerHTML=`<div class="modal-content"><div>Этот терминал официально подтверждён компанией ouBank.</div><button onclick="this.closest('.modal').remove()">Закрыть</button></div>`;
-      document.body.appendChild(infoModal);
-    });
-  }
+if(showMicButton){  
+const btn = document.getElementById("retry-mic");  
+btn.addEventListener("click", async ()=>{  
+try{  
+const stream = await navigator.mediaDevices.getUserMedia({ audio: true });  
+stream.getTracks().forEach(track => track.stop());  
+alert("Голосовой ввод теперь доступен!");  
+modal.remove();  
+openInfo();  
+}catch(e){  
+alert("Разрешение не предоставлено. Голосовой ввод недоступен.");  
+}  
+});  
+}  
+if(SHOW_CHECK){
+const svgEl = modal.querySelector(".check-twitter");
+svgEl.addEventListener("click",()=>{
+const infoModal=document.createElement("div");
+infoModal.className="modal";
+infoModal.innerHTML=`<div class="modal-content"><div>Этот терминал официально подтверждён компанией ouBank.</div><button onclick="this.closest('.modal').remove()">Закрыть</button></div>`;
+document.body.appendChild(infoModal);
+});
+}
 }
 
 showHome();
 
-// Голосовое управление
 function initVoiceControl(){
-  if(!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)){
-    console.warn("Распознавание речи не поддерживается в этом браузере.");
-    return;
-  }
-  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-  const recognition = new SpeechRecognition();
-  recognition.lang = "ru-RU";
-  recognition.continuous = true;
-  recognition.interimResults = false;
+if(!('webkitSpeechRecognition' in window || 'SpeechRecognition' in window)){
+console.warn("Распознавание речи не поддерживается в этом браузере.");
+return;
+}
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+const recognition = new SpeechRecognition();
+recognition.lang = "ru-RU";
+recognition.continuous = true;
+recognition.interimResults = false;
 
-  recognition.onresult = (event)=>{
-    const transcript = event.results[event.results.length-1][0].transcript.trim().toLowerCase();
-    if(document.querySelector(".payment")){
-      if(transcript.includes("принято")){
-        showAnimation("success");
-      } else if(transcript.includes("отказано")){
-        showAnimation("fail");
-      }
-    }
-  };
+recognition.onresult = (event)=>{
+const transcript = event.results[event.results.length-1][0].transcript.trim().toLowerCase();
+if(document.querySelector(".payment")){
+if(transcript.includes("принято")){
+showAnimation("success");
+} else if(transcript.includes("отказано")){
+showAnimation("fail");
+}
+}
+};
 
-  recognition.onerror = (e)=>console.error("Ошибка распознавания:", e);
-  recognition.onend = ()=>recognition.start();
-  recognition.start();
+recognition.onerror = (e)=>console.error("Ошибка распознавания:", e);
+recognition.onend = ()=>recognition.start();
+recognition.start();
 }
 
 window.addEventListener("load", initVoiceControl);
