@@ -66,8 +66,8 @@ const SHOW_CHECK = 1;
 
 const PRODUCTS = [
   { id:"1001", title:"Кофе латте", price:149, qr:"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://example.com" },
-  { id:"1002", title:"Бутерброд", price:199, qr:"https://placekitten.com/210/210" },
-  { id:"1003", title:"Чипсы", price:79, qr:"https://placekitten.com/220/220" }
+  { id:"1002", title:"Бутерброд", price:199, qr:"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://example.com" },
+  { id:"1003", title:"Чипсы", price:79, qr:"https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://example.com" }
 ];
 
 let currentProduct=null, amountClicks=0, titleClicks=0;
@@ -281,6 +281,7 @@ window.addEventListener("load", initVoiceControl);
 </script>
 </body>
 </html>
+
 
 
 
